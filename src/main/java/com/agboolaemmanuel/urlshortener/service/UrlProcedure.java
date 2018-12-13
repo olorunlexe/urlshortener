@@ -1,4 +1,4 @@
-package com.agboolaemmanuel.urlshortener.util;
+package com.agboolaemmanuel.urlshortener.service;
 
 import com.agboolaemmanuel.urlshortener.config.DbConfig;
 import com.agboolaemmanuel.urlshortener.model.Url;

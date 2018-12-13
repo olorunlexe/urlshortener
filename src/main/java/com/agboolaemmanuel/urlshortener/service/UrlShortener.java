@@ -26,6 +26,7 @@ public class UrlShortener {
             LOGGER.info("Shortening {}", siteUrl);
             String baseString = formatLocalURLFromShortener(siteUrl);
             String shortenedURL = baseString + uniqueID;
+            LOGGER.info("Shortened Url {}", shortenedURL);
             return shortenedURL;
         }catch(NullPointerException e){
             return e.getMessage();

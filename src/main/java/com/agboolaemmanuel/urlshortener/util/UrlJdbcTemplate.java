@@ -1,21 +1,15 @@
 package com.agboolaemmanuel.urlshortener.util;
 
-import java.sql.Types;
-import java.util.List;
-import java.util.Map;
-
 import javax.sql.DataSource;
 
 import com.agboolaemmanuel.urlshortener.config.DbConfig;
 import com.agboolaemmanuel.urlshortener.dao.UrlDao;
 import com.agboolaemmanuel.urlshortener.model.Url;
+import com.agboolaemmanuel.urlshortener.service.UrlProcedure;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlOutParameter;
-import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-import org.springframework.jdbc.object.StoredProcedure;
 
 public class UrlJdbcTemplate implements UrlDao {
     private DataSource dataSource;
@@ -28,7 +22,8 @@ public class UrlJdbcTemplate implements UrlDao {
     }
 
     @Override
-    public Url getId() {UrlProcedure urlProcedure = new UrlProcedure(dataSource, "checkIdcount");
+    public Url getId() {
+        UrlProcedure urlProcedure = new UrlProcedure(dataSource, "checkIdcount");
         return urlProcedure.execute();
     }
     public  String saveUrl(String shortUrl,String longUrl) throws Exception{
