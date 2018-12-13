@@ -25,27 +25,25 @@ public class Response {
         return urlId;
     }
 
-    public String getUrlCode() {
-        return urlCode;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-
     private void setUrlId(Long urlId) {
         this.urlId = urlId;
+    }
+
+    public String getUrlCode() {
+        return urlCode;
     }
 
     private void setUrlCode(String urlCode) {
         this.urlCode = urlCode;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
     private void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
-
 
 
     @Override

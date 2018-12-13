@@ -1,25 +1,22 @@
 package com.agboolaemmanuel.urlshortener.service;
 
-import com.agboolaemmanuel.urlshortener.dao.UrlDao;
 import com.agboolaemmanuel.urlshortener.model.Url;
-import com.agboolaemmanuel.urlshortener.util.UrlJdbcTemplate;
 import com.agboolaemmanuel.urlshortener.util.UrlConverter;
+import com.agboolaemmanuel.urlshortener.util.UrlJdbcTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
+
 @Service
 public class UrlShortener {
     private static final Logger LOGGER = LoggerFactory.getLogger(UrlShortener.class);
 
-    public UrlJdbcTemplate urlJdbcTemplate=new UrlJdbcTemplate();
+    public UrlJdbcTemplate urlJdbcTemplate = new UrlJdbcTemplate();
 
 
     public String shortenURL(String siteUrl, String longUrl) {
         try {
-            Url urlId=urlJdbcTemplate.getId();
+            Url urlId = urlJdbcTemplate.getId();
             Long id = urlId.getId();
             String uniqueID = UrlConverter.URL_CONVERTER.createUniqueID(id);
             LOGGER.info("Shortenened Url {}", uniqueID);
@@ -28,7 +25,7 @@ public class UrlShortener {
             String shortenedURL = baseString + uniqueID;
             LOGGER.info("Shortened Url {}", shortenedURL);
             return shortenedURL;
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             return e.getMessage();
         }
     }
