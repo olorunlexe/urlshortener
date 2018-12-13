@@ -1,4 +1,4 @@
-# url-shortener
+# Url-shortener
 This is an URL Shortener written in Java 8, Spring Boot, Spring JDBC with SQL SERVER
 
 Generate a Base 62 code based url
@@ -13,6 +13,12 @@ Once you start the application, the following endpoints are available so far:
 Home (Future single-page app)
 
 [POST] http://localhost:8080/shorten
+url to be Shortened should be passed as parameter throuh PostMan field to Body
+
+[GET] http://localhost:8080/getoriginalurl
+
+url to be Shortened should be passed as parameter throuh PostMan field to Body
+
 
 List all shorten urls
 Development
